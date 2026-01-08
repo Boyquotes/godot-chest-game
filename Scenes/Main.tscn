@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://ths44uybrhhr"]
+
+[ext_resource type="AudioStream" uid="uid://5qcsvtr3nwwy" path="res://Audio/Bgm.mp3" id="1_50glp"]
+[ext_resource type="Script" uid="uid://dvc4ifw8gi402" path="res://Scenes/Camera.gd" id="2_idj7w"]
+[ext_resource type="AudioStream" uid="uid://cmc5fxb8eocux" path="res://Audio/Button.mp3" id="2_vy5pj"]
+[ext_resource type="AudioStream" uid="uid://chpbbt273fjht" path="res://Audio/Pause.mp3" id="3_bmxlf"]
+[ext_resource type="AudioStream" uid="uid://u2sefv6jcebh" path="res://Audio/Key.mp3" id="4_4kpch"]
+[ext_resource type="AudioStream" uid="uid://cqgkqwn1n4ld4" path="res://Audio/Cross.mp3" id="5_grg3l"]
+[ext_resource type="AudioStream" uid="uid://cdgcvppxwpwr0" path="res://Audio/EndGame.mp3" id="6_frkhe"]
+[ext_resource type="PackedScene" uid="uid://b70ag4svp7lue" path="res://Scenes/GameUI.tscn" id="7_jw32o"]
+
+[node name="Root" type="Node"]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="AudioListener2D" type="AudioListener2D" parent="Node2D"]
+current = true
+
+[node name="Bgm" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("1_50glp")
+
+[node name="Button" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("2_vy5pj")
+
+[node name="Pause" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("3_bmxlf")
+
+[node name="Key" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("4_4kpch")
+
+[node name="Cross" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("5_grg3l")
+
+[node name="EndGame" type="AudioStreamPlayer2D" parent="Node2D/AudioListener2D"]
+stream = ExtResource("6_frkhe")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)
+script = ExtResource("2_idj7w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Game UI" parent="CanvasLayer" instance=ExtResource("7_jw32o")]
+mouse_filter = 1

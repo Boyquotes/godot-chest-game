@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://c2g26wxq41qan"]
+
+[ext_resource type="Texture2D" uid="uid://ds07oso5mb1ue" path="res://Sprites/Torch_0.png" id="1_2l58e"]
+[ext_resource type="Texture2D" uid="uid://bu6x2bb4p71dh" path="res://Sprites/Torch_1.png" id="2_vnsoy"]
+[ext_resource type="Texture2D" uid="uid://dubw7rdtuufe5" path="res://Sprites/Torch_2.png" id="3_77g5u"]
+
+[sub_resource type="Animation" id="Animation_s1i7p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_2l58e")]
+}
+
+[sub_resource type="Animation" id="Animation_63p5e"]
+resource_name = "anim_torch_idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_2l58e"), ExtResource("2_vnsoy"), ExtResource("3_77g5u"), ExtResource("1_2l58e")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3d66j"]
+_data = {
+&"RESET": SubResource("Animation_s1i7p"),
+&"anim_torch_idle": SubResource("Animation_63p5e")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2l58e"]
+animation = &"anim_torch_idle"
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_vnsoy"]
+graph_offset = Vector2(13.6383, 77.2345)
+nodes/Animation/node = SubResource("AnimationNodeAnimation_2l58e")
+nodes/Animation/position = Vector2(111.111, 133.333)
+node_connections = [&"output", 0, &"Animation"]
+
+[node name="Torch" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_2l58e")
+offset = Vector2(8, 8)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+&"": SubResource("AnimationLibrary_3d66j")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../Sprite2D")
+tree_root = SubResource("AnimationNodeBlendTree_vnsoy")
+anim_player = NodePath("../AnimationPlayer")

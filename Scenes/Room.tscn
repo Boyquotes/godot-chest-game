@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=4 uid="uid://caygntataf2yy"]
+
+[ext_resource type="Script" uid="uid://djd65ufh0rhxt" path="res://Scripts/Room.gd" id="1_si31g"]
+[ext_resource type="TileSet" uid="uid://r0n2hv2rdhbp" path="res://Tileset_b.tres" id="1_xebr5"]
+[ext_resource type="TileSet" uid="uid://buj65wo2521q1" path="res://Tileset_a.tres" id="2_si31g"]
+[ext_resource type="TileSet" uid="uid://ds15lkjut5q8k" path="res://Tileset_c.tres" id="3_mimag"]
+[ext_resource type="PackedScene" uid="uid://c2g26wxq41qan" path="res://Scenes/Torch.tscn" id="6_l0f8h"]
+[ext_resource type="PackedScene" uid="uid://dki7g6wm2tkma" path="res://Scenes/Door.tscn" id="7_vofke"]
+[ext_resource type="PackedScene" uid="uid://cfehl32irbcq" path="res://Scenes/Chest.tscn" id="7_xebr5"]
+
+[node name="Node2D" type="Node2D"]
+scale = Vector2(6, 6)
+script = ExtResource("1_si31g")
+
+[node name="Tilemap_B" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAEAAQABAAAAAAABAAEAAQABAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAADAAAAAQABAAAAAAAEAAEAAQABAAAAAAAFAAEAAQABAAAAAAAGAAEAAQABAAAAAAAGAAIAAQABAAAAAAAGAAMAAQABAAAAAAAGAAQAAQABAAAAAAAGAAUAAQABAAAAAAAGAAcAAQABAAAAAAAFAAcAAQABAAAAAAAEAAcAAQABAAAAAAADAAcAAQABAAAAAAACAAcAAQABAAAAAAABAAcAAQABAAAAAAAAAAcAAQABAAAAAAAAAAYAAQABAAAAAAAAAAUAAQABAAAAAAAAAAQAAQABAAAAAAAAAAMAAQABAAAAAAAAAAIAAQABAAAAAAABAAIAAQABAAAAAAACAAIAAQABAAAAAAADAAIAAQABAAAAAAAEAAIAAQABAAAAAAAFAAIAAQABAAAAAAAFAAMAAQAAAAAAAAAFAAQAAQAAAAAAAAAEAAYAAQABAAAAAAADAAYAAQABAAAAAAACAAUAAQABAAAAAAACAAQAAQAAAAAAAAACAAMAAQAAAAAAAAADAAMAAQABAAAAAAAEAAMAAQAAAAAAAAAEAAQAAQAAAAAAAAADAAUAAQABAAAAAAADAAQAAQABAAAAAAABAAUAAQABAAAAAAABAAYAAQABAAAAAAACAAYAAQABAAAAAAADAAgAAQABAAAAAAABAAMAAQAAAAAAAAABAAQAAQAAAAAAAAAGAAYAAQABAAAAAAAFAAYAAQABAAAAAAAEAAUAAQABAAAAAAAFAAUAAQABAAAAAAA=")
+tile_set = ExtResource("1_xebr5")
+
+[node name="Tilemap_A" type="TileMapLayer" parent="."]
+texture_filter = 1
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAFAAAAAAABAAIAAAABAAAAAAABAAIAAAACAAAAAAABAAIAAAAEAAAAAAABAAIAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAEAAAAAAAMAAAAAAAEAAAAAAAQAAAAAAAEAAAAAAAUAAAAAAAEAAAAAAAYAAAAAAAEAAAAAAAcAAAAAAAEAAAAAAAgAAAABAAIAAAACAAgAAAABAAIAAAABAAgAAAABAAIAAAAGAAAAAAABAAAAAAAGAAEAAAABAAEAAAAGAAIAAAABAAEAAAAGAAMAAAABAAEAAAAGAAQAAAABAAEAAAAGAAUAAAABAAEAAAAGAAYAAAABAAEAAAAGAAcAAAABAAEAAAAGAAgAAAABAAIAAAAFAAgAAAABAAIAAAAEAAgAAAABAAIAAAA=")
+tile_set = ExtResource("2_si31g")
+
+[node name="Tilemap_C" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAGAAMAAQAAAAAAAAAGAAQAAQAAAAEAAAAEAAUAAQABAAAAAAABAAUAAQABAAAAAAAFAAUAAQACAAAAAAACAAUAAQACAAAAAAADAAUAAQABAAEAAAAGAAUAAQABAAEAAAADAAMAAQAAAAAAAAADAAQAAQAAAAEAAAA=")
+tile_set = ExtResource("3_mimag")
+
+[node name="Torch_R_1" parent="." instance=ExtResource("6_l0f8h")]
+position = Vector2(34.1667, 52)
+
+[node name="Torch_L_1" parent="." instance=ExtResource("6_l0f8h")]
+position = Vector2(12.1667, 52)
+
+[node name="Torch_R_0" parent="." instance=ExtResource("6_l0f8h")]
+position = Vector2(83, 52)
+
+[node name="Torch_L_0" parent="." instance=ExtResource("6_l0f8h")]
+position = Vector2(61, 52)
+
+[node name="Door" parent="." instance=ExtResource("7_vofke")]
+position = Vector2(48, 0)
+
+[node name="Chest_Left" parent="." instance=ExtResource("7_xebr5")]
+position = Vector2(24, 56)
+
+[node name="Chest_Right" parent="." instance=ExtResource("7_xebr5")]
+position = Vector2(72, 56)

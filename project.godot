@@ -1,0 +1,36 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Chest game"
+run/main_scene="uid://ths44uybrhhr"
+config/features=PackedStringArray("4.4", "Mobile")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Game="*res://Scripts/Game.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+
+[gui]
+
+theme/custom="uid://bgxl8s1io70be"
+theme/custom_font="uid://bcsdg5knb1i8w"
+
+[rendering]
+
+renderer/rendering_method="mobile"
+textures/vram_compression/import_s3tc_bptc=true
+environment/defaults/default_clear_color=Color(0, 0, 0, 1)

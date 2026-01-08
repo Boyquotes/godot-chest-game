@@ -1,0 +1,353 @@
+[gd_scene load_steps=8 format=3 uid="uid://b70ag4svp7lue"]
+
+[ext_resource type="Script" uid="uid://bknj7qytvk5kq" path="res://Scripts/UI_Manager.gd" id="1_co6lq"]
+[ext_resource type="FontFile" uid="uid://bcsdg5knb1i8w" path="res://PressStart2P.ttf" id="1_tyage"]
+[ext_resource type="Theme" uid="uid://bgxl8s1io70be" path="res://RetroTheme.tres" id="2_37hul"]
+[ext_resource type="Texture2D" uid="uid://bf6t1qc0ndtds" path="res://Sprites/Return.png" id="3_frnsy"]
+[ext_resource type="Texture2D" uid="uid://c7glb7tsm5euw" path="res://Sprites/Dots.png" id="3_po7eo"]
+[ext_resource type="Texture2D" uid="uid://tyx1wpo8pm20" path="res://Sprites/Background.png" id="6_wjrrg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_37hul"]
+font = ExtResource("1_tyage")
+font_size = 96
+
+[node name="Game UI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_co6lq")
+
+[node name="Main title" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Title" type="Label" parent="Main title"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 256.0
+offset_right = 480.0
+offset_bottom = 352.0
+grow_horizontal = 2
+text = "Chest game"
+label_settings = SubResource("LabelSettings_37hul")
+
+[node name="Button_Play" type="Button" parent="Main title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -40.0
+offset_right = 300.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_37hul")
+text = "Play"
+
+[node name="Button_HowTo" type="Button" parent="Main title"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = 88.0
+offset_right = 300.0
+offset_bottom = 168.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_37hul")
+text = "How to play"
+
+[node name="Level selection" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Title" type="Label" parent="Level selection"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 256.0
+offset_right = 480.0
+offset_bottom = 352.0
+grow_horizontal = 2
+text = "Select a level"
+label_settings = SubResource("LabelSettings_37hul")
+
+[node name="Button_Return" type="TextureButton" parent="Level selection"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = 144.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_frnsy")
+stretch_mode = 0
+
+[node name="How to" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label_Title" type="Label" parent="How to"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -480.0
+offset_top = 256.0
+offset_right = 480.0
+offset_bottom = 352.0
+grow_horizontal = 2
+text = "How to play:"
+label_settings = SubResource("LabelSettings_37hul")
+
+[node name="Button_Return" type="TextureButton" parent="How to"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -144.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = 144.0
+grow_horizontal = 0
+texture_normal = ExtResource("3_frnsy")
+stretch_mode = 0
+
+[node name="Label" type="RichTextLabel" parent="How to"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 128.0
+offset_top = -28.0
+offset_right = -128.0
+offset_bottom = 284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "There are 2 [color=red]chests[/color] in the room, open one of them. If you open the correct one a [color=cyan]key[/color] will appear, use it to open the [color=yellow]door[/color] and advance to the next room.
+
+If you open the worng chest [color=red]the game ends.[/color]
+
+[color=cyan]There is no end to this game[/color], try to advance as many rooms in the shortest time as you can to get a high score."
+horizontal_alignment = 3
+
+[node name="In game hud" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="Label_CurrentStage" type="Label" parent="In game hud"]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = 432.0
+offset_bottom = 96.0
+mouse_filter = 1
+theme = ExtResource("2_37hul")
+theme_override_font_sizes/font_size = 48
+text = "Stage: 1"
+
+[node name="Button_OpenMenu" type="TextureButton" parent="In game hud"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -160.0
+offset_top = 24.0
+offset_right = -64.0
+offset_bottom = 120.0
+grow_horizontal = 0
+mouse_filter = 1
+texture_normal = ExtResource("3_po7eo")
+stretch_mode = 0
+
+[node name="Pause menu" type="Control" parent="In game hud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture_Background" type="TextureRect" parent="In game hud/Pause menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("6_wjrrg")
+
+[node name="Label_Title" type="Label" parent="In game hud/Pause menu"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.0
+offset_top = 256.0
+offset_right = 352.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Game paused"
+
+[node name="Button_Resume" type="Button" parent="In game hud/Pause menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -48.0
+offset_right = 192.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Resume"
+
+[node name="Button_Exit" type="Button" parent="In game hud/Pause menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = 80.0
+offset_right = 192.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit"
+
+[node name="Score" type="Control" parent="In game hud"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Texture_Background" type="TextureRect" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+texture = ExtResource("6_wjrrg")
+
+[node name="Label_Title" type="Label" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -352.0
+offset_top = 256.0
+offset_right = 352.0
+offset_bottom = 320.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Your score:"
+horizontal_alignment = 1
+
+[node name="Label_Stage" type="Label" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -448.0
+offset_top = -32.0
+offset_right = 448.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 64
+text = "Stage: 0"
+horizontal_alignment = 1
+
+[node name="Label_Time" type="Label" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -448.0
+offset_top = 640.0
+offset_right = 448.0
+offset_bottom = 704.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 64
+text = "Time: 00:00:00"
+horizontal_alignment = 1
+
+[node name="Button_TryAgain" type="Button" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -224.0
+offset_right = -64.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Try again"
+
+[node name="Button_Exit" type="Button" parent="In game hud/Score"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -224.0
+offset_right = 416.0
+offset_bottom = -128.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Exit"
